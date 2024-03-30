@@ -40,7 +40,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   const file = req.file;
 
   const params = {
-    Bucket: "lab-test-dora",
+    Bucket: process.env.AWS_S3_BUCKET,
     Key: file.originalname,
     Body: file.buffer,
     ContentType: file.mimetype
